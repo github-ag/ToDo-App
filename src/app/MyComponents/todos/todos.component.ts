@@ -7,9 +7,11 @@ import {Todo} from "../../Todo";
   styleUrls: ['./todos.component.css']
 })
 export class TodosComponent implements OnInit {
+  heading: string;
 
   todos: Todo[];
   constructor() { 
+    this.heading = "Abhsihek";
     this.todos = [
       {
         sno: 1,
@@ -28,9 +30,12 @@ export class TodosComponent implements OnInit {
 
   ngOnInit(): void {
   }
-  
+
   onClick(todo:Todo) {
     console.log("Description");
   }
 
 }
+
+
+

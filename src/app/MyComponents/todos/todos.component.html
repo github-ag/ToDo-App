@@ -1,6 +1,7 @@
 <div class="container text-center">
-    <h1>Todo List</h1>
+    <h1 id="firstHeading" class="headingClass">Todo List</h1>
     <ul *ngFor="let todo of todos">
-        <li (click)="onClick(todo)">{{todo.title}}</li>
+        <li class= "red-color list-group-item" (click)="onClick(todo)">{{todo.title}}</li>
     </ul>
 </div>
+<script src="todos.js"></script>
