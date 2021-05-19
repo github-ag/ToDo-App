@@ -1,7 +1,19 @@
 <div class="container text-center">
     <h1 id="firstHeading" class="headingClass">Todo List</h1>
-    <ul *ngFor="let todo of todos">
-        <li class= "red-color list-group-item" (click)="onClick(todo)">{{todo.title}}</li>
-    </ul>
+
+    <div class="accordion" id="accordionExample" *ngFor = "let todo of todos">
+        <div class="accordion-item">
+          <h2 class="accordion-header" id="headingOne">
+            <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+              {{todo.title}}
+            </button>
+          </h2>
+          <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+            <div class="accordion-body">
+              <strong>{{todo.desc}}</strong> 
+            </div>
+          </div>
+        </div>
+    </div>
 </div>
-<script src="todos.js"></script>
+
