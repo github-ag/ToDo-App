@@ -29,17 +29,23 @@ export class TodosComponent implements OnInit {
         active: true
       }
     ]
-    //Adding an element to todos list
-    //console.log(this.todos);
   }
 
   ngOnInit(): void {
   }
 
   addTodoItem(newTodo: Todo){
-    //this.todos.push(todo)
+
+    // This sno increment is not working
+    this.num_todos = this.num_todos+1;
+    newTodo.sno = this.num_todos;
+
+    const todoToBeAdded = newTodo;
+    this.todos.push(todoToBeAdded);
+    
     console.log("add event is listened");
-    console.log(newTodo);
+    //console.log(newTodo);
+    console.log(this.todos);
   }
 
 }

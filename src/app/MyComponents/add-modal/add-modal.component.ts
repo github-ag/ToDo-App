@@ -7,11 +7,11 @@ import { Todo } from 'src/app/Todo';
   styleUrls: ['./add-modal.component.css']
 })
 export class AddModalComponent implements OnInit {
+  // Event emitter to tell the parent that new todo has added.
   @Output() sendTodoToList = new EventEmitter();
 
   // Todo that is sent to parent.
   newTodo : Todo;
-  msgToParent = "msgreceivedfromaddmodal";
 
   constructor() { 
     this.newTodo = {
@@ -25,9 +25,11 @@ export class AddModalComponent implements OnInit {
   ngOnInit(): void {
   }
   sendTodo(){
-    // Here we want to change the content of newTodo by fetching data from the forms.
+    // newTodo Contents are changed by two way binding.
     this.sendTodoToList.emit(this.newTodo);
     console.log("sending is fine");
   }
+
+  
 
 }
