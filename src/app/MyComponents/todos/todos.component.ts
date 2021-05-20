@@ -19,7 +19,7 @@ export class TodosComponent implements OnInit {
     this.todos = [
       {
         sno: 1,
-        title: "Learn Angular",
+        title: "Learn-Angular",
         desc: "start learning from YouTube",
         active: true
       },
