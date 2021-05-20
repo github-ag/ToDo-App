@@ -1,4 +1,4 @@
-import { Component, OnInit, } from '@angular/core';
+import { Component, OnInit, Input, Output } from '@angular/core';
 import { ITS_JUST_ANGULAR } from '@angular/core/src/r3_symbols';
 import {Todo} from "../../Todo";
 @Component({
@@ -8,9 +8,10 @@ import {Todo} from "../../Todo";
 })
 export class TodosComponent implements OnInit {
 
-
+  num_todos: number;
   todos: Todo[];
   constructor() { 
+    this.num_todos = 2;
     this.todos = [
       {
         sno: 1,
@@ -25,13 +26,16 @@ export class TodosComponent implements OnInit {
         active: true
       }
     ]
+    //Adding an element to todos list
+    console.log(this.todos);
   }
 
   ngOnInit(): void {
   }
 
-  onClick(todo:Todo) {
-    console.log("Description");
+  addTodoItem(){
+    //this.todos.push(todo)
+    console.log("Add button is working");
   }
 
 }
