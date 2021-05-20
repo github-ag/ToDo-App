@@ -1,4 +1,5 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { Todo } from 'src/app/Todo';
 
 @Component({
   selector: 'app-add-modal',
@@ -8,15 +9,25 @@ import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 export class AddModalComponent implements OnInit {
   @Output() sendTodoToList = new EventEmitter();
 
+  // Todo that is sent to parent.
+  newTodo : Todo;
   msgToParent = "msgreceivedfromaddmodal";
 
-  currTempMsg = "Hello Todos";
-  constructor() { }
+  constructor() { 
+    this.newTodo = {
+      sno:3,
+      title:"This is a newly added todo",
+      desc:"This is description of the new form",
+      active:true
+    }
+  }
 
   ngOnInit(): void {
   }
   sendTodo(){
-    this.sendTodoToList.emit(this.currTempMsg);
+    // Here we want to change the content of newTodo by fetching data from the forms.
+    this.sendTodoToList.emit(this.newTodo);
+    console.log("sending is fine");
   }
 
 }

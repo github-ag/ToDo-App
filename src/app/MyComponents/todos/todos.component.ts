@@ -10,8 +10,11 @@ export class TodosComponent implements OnInit {
 
   num_todos: number;
   todos: Todo[];
+  //receivedMsg: string;
+
   constructor() { 
     this.num_todos = 2;
+    //this.receivedMsg = "receivedTodoItem";
     this.todos = [
       {
         sno: 1,
@@ -27,15 +30,16 @@ export class TodosComponent implements OnInit {
       }
     ]
     //Adding an element to todos list
-    console.log(this.todos);
+    //console.log(this.todos);
   }
 
   ngOnInit(): void {
   }
 
-  addTodoItem(){
+  addTodoItem(newTodo: Todo){
     //this.todos.push(todo)
-    console.log("Add button is working");
+    console.log("add event is listened");
+    console.log(newTodo);
   }
 
 }
