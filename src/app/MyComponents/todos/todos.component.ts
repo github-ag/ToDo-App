@@ -1,3 +1,4 @@
+import { CompileShallowModuleMetadata } from '@angular/compiler';
 import { Component, OnInit, Input, Output } from '@angular/core';
 import { ITS_JUST_ANGULAR } from '@angular/core/src/r3_symbols';
 import {Todo} from "../../Todo";
@@ -40,13 +41,29 @@ export class TodosComponent implements OnInit {
     this.num_todos = this.num_todos+1;
     newTodo.sno = this.num_todos;
 
-    const todoToBeAdded = newTodo;
-    this.todos.push(todoToBeAdded);
+    this.todos.push(newTodo);
     
     console.log("add event is listened");
     //console.log(newTodo);
     console.log(this.todos);
   }
+  deleteTodo(deleteTodo: Todo){
+    //console.log(deleteTodo);
+    const deleteTodoSno:number = deleteTodo.sno;
+    const reqIndex:number = deleteTodoSno-1;
+    console.log("index to be deleted is"+reqIndex);
+
+    // Resetting all the later index
+    for(let i=reqIndex+1;i<this.todos.length;i++){
+      this.todos[i].sno -= 1;
+    }
+    // removing the num_todos by 1.
+    this.num_todos-=1; 
+
+    this.todos.splice(reqIndex,1);
+    console.log(this.todos);
+  }
+  
 
 }
 
