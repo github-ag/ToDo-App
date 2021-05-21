@@ -10,6 +10,7 @@ import { AddModalComponent } from './MyComponents/add-modal/add-modal.component'
 import { UpdateTodoComponent } from './MyComponents/update-todo/update-todo.component';
 
 import { FinishTodosComponent } from './MyComponents/finish-todos/finish-todos.component'
+import { FinshedTasksService } from './finshed-tasks.service'
 
 
 @NgModule({
@@ -28,7 +29,7 @@ import { FinishTodosComponent } from './MyComponents/finish-todos/finish-todos.c
     AppRoutingModule,
     FormsModule
   ],
-  providers: [],
+  providers: [FinshedTasksService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

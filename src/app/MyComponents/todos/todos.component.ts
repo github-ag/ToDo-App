@@ -2,6 +2,7 @@ import { JsonPipe } from '@angular/common';
 import { CompileShallowModuleMetadata } from '@angular/compiler';
 import { Component, OnInit, Input, Output } from '@angular/core';
 import { ITS_JUST_ANGULAR } from '@angular/core/src/r3_symbols';
+import { FinshedTasksService } from 'src/app/finshed-tasks.service';
 import {Todo} from "../../Todo";
 @Component({
   selector: 'app-todos',
@@ -11,10 +12,11 @@ import {Todo} from "../../Todo";
 export class TodosComponent implements OnInit {
 
   num_todos: number;
+  finishedTodos!: Todo[];
   todos: Todo[];
   //receivedMsg: string;
 
-  constructor() { 
+  constructor(private _finishedTasks: FinshedTasksService) { 
     this.num_todos = 2;
     //this.receivedMsg = "receivedTodoItem";
     this.todos = [
@@ -36,6 +38,7 @@ export class TodosComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.finishedTodos = this._finishedTasks.getFinishedTasks();
   }
 
   addTodoItem(newTodo: Todo){
@@ -76,6 +79,22 @@ export class TodosComponent implements OnInit {
     console.log(reqIndex);
     this.todos[reqIndex].title=updateTodo.title;
     this.todos[reqIndex].desc=updateTodo.desc;
+  }
+
+  addFinishTodo(tempTodo: Todo){
+    const finishTodoSno:number = tempTodo.sno;
+    const reqIndex:number = finishTodoSno-1;
+    //console.log("index to be deleted is"+reqIndex);
+
+    // Resetting all the later index
+    for(let i=reqIndex+1;i<this.todos.length;i++){
+      this.todos[i].sno -= 1;
+    }
+    // removing the num_todos by 1.
+    this.num_todos-=1; 
+
+    this.todos.splice(reqIndex,1);
+    this._finishedTasks.setFinishedTasks(tempTodo);
   }
 }
 
