@@ -1,3 +1,4 @@
+import { JsonPipe } from '@angular/common';
 import { CompileShallowModuleMetadata } from '@angular/compiler';
 import { Component, OnInit, Input, Output } from '@angular/core';
 import { ITS_JUST_ANGULAR } from '@angular/core/src/r3_symbols';
@@ -14,7 +15,7 @@ export class TodosComponent implements OnInit {
   //receivedMsg: string;
 
   constructor() { 
-    this.num_todos = 0;
+    this.num_todos = 2;
     //this.receivedMsg = "receivedTodoItem";
     this.todos = [
       {
@@ -30,6 +31,8 @@ export class TodosComponent implements OnInit {
         active: true
       }
     ]
+    
+    localStorage.setItem("todoList",JSON.stringify(this.todos))
   }
 
   ngOnInit(): void {
@@ -65,8 +68,11 @@ export class TodosComponent implements OnInit {
   }
   
 
-  updateTodoItem(updateTodo: Todo, currentTodo: Todo){
-    const reqIndex:number=currentTodo.sno-1;
+  updateTodoItem(updateTodo: Todo){
+    console.log(updateTodo);
+    //console.log("todoDirectly"+todoSno);
+    //console.log(currTodo);
+    const reqIndex:number=updateTodo.sno-1;
     console.log(reqIndex);
     this.todos[reqIndex].title=updateTodo.title;
     this.todos[reqIndex].desc=updateTodo.desc;
@@ -75,3 +81,4 @@ export class TodosComponent implements OnInit {
 
 
 
+localStorage

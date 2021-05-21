@@ -14,6 +14,7 @@ export class AddModalComponent implements OnInit {
   newTodo : Todo;
 
   constructor() { 
+    console.log("add-todo-constructor");
     this.newTodo = {
       sno:3,
       title:"This is a newly added todo",
@@ -24,7 +25,18 @@ export class AddModalComponent implements OnInit {
 
   ngOnInit(): void {
   }
+  
+  createNewReference(){
+    console.log("new-reference");
+    this.newTodo = {
+      sno:3,
+      title:"This is a newly added todo",
+      desc:"This is description of the new form",
+      active:true
+    }
+  }
   sendTodo(){
+
     // newTodo Contents are changed by two way binding.
     this.sendTodoToList.emit(this.newTodo);
     console.log("sending is fine");
