@@ -4,11 +4,13 @@
     <div class="accordion" id="accordionExample" *ngFor = "let todo of todos">
         <div class="accordion-item">
           <h2 class="accordion-header" id="heading">
-            <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="$(todo.title)" aria-expanded="true" aria-controls="collapseOne">
+            <button class="accordion-button" type="button" data-bs-toggle="collapse" [attr.data-bs-target]="todo.title" aria-expanded="true" aria-controls="collapseOne">
               {{todo.title}}
+              <button class="btn btn-danger" (click)="deleteTodo(todo)">Delete</button>
             </button>
           </h2>
-          <div id="$(todo.title)" class="accordion-collapse collapse show" aria-labelledby="heading" data-bs-parent="#accordionExample">
+          <!--This is accordion collapse part.-->
+          <div id={{todo.title}} class="accordion-collapse collapse show" aria-labelledby="heading" data-bs-parent="#accordionExample">
             <div class="accordion-body">
               <strong>{{todo.desc}}</strong> 
             </div>
@@ -17,6 +19,7 @@
         </div>
     </div>
 </div>
-<!-- Modal component to take the input for the todo. We have to take that input and add that to our todo list by calling addTodoItem member function. -->
-<app-add-modal></app-add-modal>
+<!-- get the new Todo from the add todo model through event and updating our todo list. -->
+<app-add-modal (sendTodoToList)="addTodoItem($event)"></app-add-modal>
 
+ 
