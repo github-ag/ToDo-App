@@ -14,7 +14,7 @@ export class TodosComponent implements OnInit {
   //receivedMsg: string;
 
   constructor() { 
-    this.num_todos = 2;
+    this.num_todos = 0;
     //this.receivedMsg = "receivedTodoItem";
     this.todos = [
       {
@@ -65,6 +65,12 @@ export class TodosComponent implements OnInit {
   }
   
 
+  updateTodoItem(updateTodo: Todo, currentTodo: Todo){
+    const reqIndex:number=currentTodo.sno-1;
+    console.log(reqIndex);
+    this.todos[reqIndex].title=updateTodo.title;
+    this.todos[reqIndex].desc=updateTodo.desc;
+  }
 }
 
 
