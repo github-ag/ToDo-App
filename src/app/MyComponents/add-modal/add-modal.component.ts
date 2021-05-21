@@ -1,4 +1,5 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { Todo } from 'src/app/Todo';
 
 @Component({
   selector: 'app-add-modal',
@@ -6,17 +7,29 @@ import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
   styleUrls: ['./add-modal.component.css']
 })
 export class AddModalComponent implements OnInit {
+  // Event emitter to tell the parent that new todo has added.
   @Output() sendTodoToList = new EventEmitter();
 
-  msgToParent = "msgreceivedfromaddmodal";
+  // Todo that is sent to parent.
+  newTodo : Todo;
 
-  currTempMsg = "Hello Todos";
-  constructor() { }
+  constructor() { 
+    this.newTodo = {
+      sno:3,
+      title:"This is a newly added todo",
+      desc:"This is description of the new form",
+      active:true
+    }
+  }
 
   ngOnInit(): void {
   }
   sendTodo(){
-    this.sendTodoToList.emit(this.currTempMsg);
+    // newTodo Contents are changed by two way binding.
+    this.sendTodoToList.emit(this.newTodo);
+    console.log("sending is fine");
   }
+
+  
 
 }
