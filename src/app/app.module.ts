@@ -6,7 +6,11 @@ import { AppComponent } from './app.component';
 import { TodosComponent } from './MyComponents/todos/todos.component';
 import { AddModalComponent } from './MyComponents/add-modal/add-modal.component';
 
+
 import { UpdateTodoComponent } from './MyComponents/update-todo/update-todo.component';
+
+import { FinishTodosComponent } from './MyComponents/finish-todos/finish-todos.component'
+
 
 @NgModule({
   declarations: [
@@ -14,6 +18,10 @@ import { UpdateTodoComponent } from './MyComponents/update-todo/update-todo.comp
     TodosComponent,
     AddModalComponent,
     UpdateTodoComponent,
+
+    
+    FinishTodosComponent
+
   ],
   imports: [
     BrowserModule,
