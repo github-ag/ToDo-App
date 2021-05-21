@@ -5,13 +5,16 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { TodosComponent } from './MyComponents/todos/todos.component';
 import { AddModalComponent } from './MyComponents/add-modal/add-modal.component';
-import { FormsModule } from '@angular/forms'
+import { FormsModule } from '@angular/forms';
+import { FinishTodosComponent } from './MyComponents/finish-todos/finish-todos.component'
 
 @NgModule({
   declarations: [
     AppComponent,
     TodosComponent,
-    AddModalComponent
+    AddModalComponent,
+    
+    FinishTodosComponent
   ],
   imports: [
     BrowserModule,
