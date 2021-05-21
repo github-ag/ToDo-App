@@ -14,7 +14,7 @@
             <div class="accordion-body">
               <strong>{{todo.desc}}</strong> 
             </div>
-            <app-update-todo (updateTodoToList)="updateTodoItem($event)"></app-update-todo>
+            <app-update-todo (updateTodoToList)="updateTodoItem($event,todo)"></app-update-todo>
           </div>
         </div>
     </div>
