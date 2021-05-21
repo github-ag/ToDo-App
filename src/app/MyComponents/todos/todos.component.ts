@@ -38,6 +38,11 @@ export class TodosComponent implements OnInit {
     console.log("Add button is working");
   }
 
+  updateTodoItem(updateTodo: Todo){
+    const reqIndex:number = updateTodo.sno-1;
+    this.todos[reqIndex].title=updateTodo.title;
+    this.todos[reqIndex].desc=updateTodo.desc;
+  }
 }
 
 
