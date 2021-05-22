@@ -11,6 +11,7 @@ import { UpdateTodoComponent } from './MyComponents/update-todo/update-todo.comp
 
 import { FinishTodosComponent } from './MyComponents/finish-todos/finish-todos.component'
 import { FinshedTasksService } from './finshed-tasks.service'
+import { TodosService } from './todos.service';
 
 
 @NgModule({
@@ -29,7 +30,7 @@ import { FinshedTasksService } from './finshed-tasks.service'
     AppRoutingModule,
     FormsModule
   ],
-  providers: [FinshedTasksService],
+  providers: [FinshedTasksService, TodosService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
