@@ -12,7 +12,7 @@ export class UpdateTodoComponent implements OnInit {
   updateTodo: Todo;
   constructor() {
     this.updateTodo = {
-      sno:2,
+      sno:1,
       title:"This is a newly updated todo",
       desc:"This is description of the new form",
       active:true

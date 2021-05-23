@@ -14,7 +14,7 @@ export class TodosComponent implements OnInit {
   //receivedMsg: string;
 
   constructor() { 
-    this.num_todos = 0;
+    this.num_todos = 2;
     //this.receivedMsg = "receivedTodoItem";
     this.todos = [
       {
