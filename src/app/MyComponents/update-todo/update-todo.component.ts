@@ -9,24 +9,36 @@ import { Todo } from 'src/app/Todo';
 export class UpdateTodoComponent implements OnInit {
 
   @Output() updateTodoToList = new EventEmitter();
+  @Input() todoSno!: number;
+
   updateTodo: Todo;
   constructor() {
     this.updateTodo = {
-      sno:1,
-      title:"This is a newly updated todo",
+      sno:4,
+      title:"Write updated title",
       desc:"This is description of the new form",
       active:true
     }
+  
    }
+   
 
   ngOnInit(): void {
   }
+  
+  updateTodoSno(){
+    this.updateTodo.sno = this.todoSno;
+    console.log("todoSno in "+this.todoSno);
+    console.log("todo sno which need to be updated "+this.updateTodo.sno);
+   }
+   
+   
 
-  sendTodo(){
+  sendUpdatedTodo(){
+    console.log("final sno updation"+this.todoSno);
+    this.updateTodo.sno = this.todoSno;
     this.updateTodoToList.emit(this.updateTodo);
     console.log("updation is done");
   }
-  /*updateTodo(){
-    const index =this.newTodo.
-  }*/
+  
 }

@@ -9,6 +9,11 @@ import { HttpClientModule } from '@angular/common/http';
 import { UpdateTodoComponent } from './MyComponents/update-todo/update-todo.component';
 import { QuotesComponent } from './MyComponents/quotes/quotes.component';
 
+import { FinishTodosComponent } from './MyComponents/finish-todos/finish-todos.component'
+import { FinshedTasksService } from './finshed-tasks.service'
+import { TodosService } from './todos.service';
+
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -16,6 +21,7 @@ import { QuotesComponent } from './MyComponents/quotes/quotes.component';
     AddModalComponent,
     UpdateTodoComponent,
     QuotesComponent,
+    FinishTodosComponent
   ],
   imports: [
     BrowserModule,
@@ -23,7 +29,7 @@ import { QuotesComponent } from './MyComponents/quotes/quotes.component';
     FormsModule,
     HttpClientModule
   ],
-  providers: [],
+  providers: [FinshedTasksService, TodosService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
