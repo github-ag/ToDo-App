@@ -17,7 +17,9 @@ export class TodosComponent implements OnInit {
   todos!: Todo[];
   //receivedMsg: string;
 
+  
   constructor(private _finishedTasks: FinshedTasksService, private _todosService: TodosService) { 
+
   }
 
   ngOnInit(): void {
