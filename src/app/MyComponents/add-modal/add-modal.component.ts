@@ -1,4 +1,5 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+
 import { Todo } from 'src/app/Todo';
 
 @Component({
@@ -34,6 +35,7 @@ export class AddModalComponent implements OnInit {
       desc:"This is description of the new form",
       active:true
     }
+    
   }
   sendTodo(){
 

@@ -28,17 +28,19 @@ export class UpdateTodoComponent implements OnInit {
   
   updateTodoSno(){
     this.updateTodo.sno = this.todoSno;
-    console.log("todoSno in "+this.todoSno);
+    console.log("todoSno is"+this.todoSno);
     console.log("todo sno which need to be updated "+this.updateTodo.sno);
+    this.updateTodoToList.emit(this.updateTodo);
    }
    
    
-
+   /*
   sendUpdatedTodo(){
     console.log("final sno updation"+this.todoSno);
     this.updateTodo.sno = this.todoSno;
+    console.log(this.updateTodo);
     this.updateTodoToList.emit(this.updateTodo);
     console.log("updation is done");
-  }
+  }*/
   
 }
