@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
+import { interval } from 'rxjs';
 
 export class Quotes{
   text: string
@@ -24,11 +25,20 @@ export class QuotesComponent implements OnInit {
     private httpClient: HttpClient
   ) { 
     this.quotes=[];
-    this.idx=Math.floor(Math.random() * (1642 - 0) + 0);
+    this.idx=0;
   }
 
   ngOnInit(): void {
     this.getQuotes();
+    let setRandomIdx=interval(3000);
+    setRandomIdx.subscribe(res=>{
+      this.idx=Math.floor(Math.random() * ((this.quotes.length-1) - 0) + 0);
+    })
+
+    let setQuote=interval(3000);
+    setQuote.subscribe(res=>{
+      this.currentQuote=this.quotes[this.idx];
+    })
   }
 
   getQuotes(){
@@ -40,16 +50,14 @@ export class QuotesComponent implements OnInit {
     );
   }
   
-  setRandomIdx(min:number, max:number) {
+  /*setRandomIdx(min:number, max:number) {
     console.log(min+' '+max);
     this.idx= Math.floor(Math.random() * (max - min) + min);
-    //return true;
   }
   setQuote(){
     this.currentQuote=this.quotes[this.idx];
     console.log(this.currentQuote.author);
     console.log('abcd');
-    //return true;
-  }
+  }*/
   
 }
