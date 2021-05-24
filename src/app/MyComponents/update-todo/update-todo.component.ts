@@ -10,6 +10,7 @@ export class UpdateTodoComponent implements OnInit {
 
   @Output() updateTodoToList = new EventEmitter();
   @Input() todoSno!: number;
+
   updateTodo: Todo;
   constructor() {
     this.updateTodo = {
@@ -18,6 +19,7 @@ export class UpdateTodoComponent implements OnInit {
       desc:"This is description of the new form",
       active:true
     }
+  
    }
    
 
@@ -26,12 +28,13 @@ export class UpdateTodoComponent implements OnInit {
   
   updateTodoSno(){
     this.updateTodo.sno = this.todoSno;
+    console.log("todoSno in "+this.todoSno);
     console.log("todo sno which need to be updated "+this.updateTodo.sno);
    }
    
    
 
-  sendTodo(){
+  sendUpdatedTodo(){
     console.log("final sno updation"+this.todoSno);
     this.updateTodo.sno = this.todoSno;
     this.updateTodoToList.emit(this.updateTodo);
