@@ -2,6 +2,8 @@ import { JsonPipe } from '@angular/common';
 import { CompileShallowModuleMetadata } from '@angular/compiler';
 import { Component, OnInit, Input, Output } from '@angular/core';
 import { ITS_JUST_ANGULAR } from '@angular/core/src/r3_symbols';
+import { FinshedTasksService } from 'src/app/finshed-tasks.service';
+import { TodosService } from 'src/app/todos.service';
 import {Todo} from "../../Todo";
 @Component({
   selector: 'app-todos',
@@ -10,75 +12,63 @@ import {Todo} from "../../Todo";
 })
 export class TodosComponent implements OnInit {
 
-  num_todos: number;
-  todos: Todo[];
+  num_todos!: number;
+  finishedTodos!: Todo[];
+  todos!: Todo[];
   //receivedMsg: string;
 
-  constructor() { 
-    this.num_todos = 2;
-    //this.receivedMsg = "receivedTodoItem";
-    this.todos = [
-      {
-        sno: 1,
-        title: "Learn-Angular",
-        desc: "start learning from YouTube",
-        active: true
-      },
-      {
-        sno: 2,
-        title: 'Mini-Project',
-        desc: 'Make mini-project using angular',
-        active: true
-      }
-    ]
-    
-    localStorage.setItem("todoList",JSON.stringify(this.todos))
+  constructor(private _finishedTasks: FinshedTasksService, private _todosService: TodosService) { 
   }
 
   ngOnInit(): void {
+    this.finishedTodos = this._finishedTasks.getFinishedTasks();
+    this.todos = this._todosService.getTodos();
+    this.num_todos = this._todosService.getNumTodos();
   }
 
   addTodoItem(newTodo: Todo){
 
+    
     // This sno increment is not working
     this.num_todos = this.num_todos+1;
     newTodo.sno = this.num_todos;
 
-    this.todos.push(newTodo);
+    //this.todos.push(newTodo);
     
-    console.log("add event is listened");
+    //console.log("add event is listened");
     //console.log(newTodo);
-    console.log(this.todos);
+    //console.log(this.todos);
+    
+    this._todosService.addTodoItem(newTodo);
+    this.todos = this._todosService.getTodos();
+    this.num_todos = this._todosService.getNumTodos();
+  
   }
   deleteTodo(deleteTodo: Todo){
-    //console.log(deleteTodo);
-    const deleteTodoSno:number = deleteTodo.sno;
-    const reqIndex:number = deleteTodoSno-1;
-    console.log("index to be deleted is"+reqIndex);
-
-    // Resetting all the later index
-    for(let i=reqIndex+1;i<this.todos.length;i++){
-      this.todos[i].sno -= 1;
-    }
-    // removing the num_todos by 1.
-    this.num_todos-=1; 
-
-    this.todos.splice(reqIndex,1);
-    console.log(this.todos);
+   
+    this._todosService.deleteTodo(deleteTodo);
+    this.todos = this._todosService.getTodos();
+    this.num_todos = this._todosService.getNumTodos();
+    
   }
   
 
   updateTodoItem(updateTodo: Todo){
-    console.log(updateTodo);
-    //console.log("todoDirectly"+todoSno);
-    //console.log(currTodo);
-    const reqIndex:number=updateTodo.sno-1;
-    console.log(reqIndex);
-    this.todos[reqIndex].title=updateTodo.title;
-    this.todos[reqIndex].desc=updateTodo.desc;
+   
+    this._todosService.updateTodoItem(updateTodo);
+    this.todos = this._todosService.getTodos();
+    this.num_todos = this._todosService.getNumTodos();
   }
+
+  addFinishTodo(tempTodo: Todo){
+    this._finishedTasks.setFinishedTasks(tempTodo);
+
+    this.todos = this._todosService.getTodos();
+    this.num_todos = this._todosService.getNumTodos();
+    
+  }
+
 }
 
 
 
-localStorage

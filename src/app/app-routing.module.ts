@@ -6,6 +6,7 @@ import { TodosComponent } from './MyComponents/todos/todos.component';
 
 
 const routes: Routes = [
+  { path: '', redirectTo: '/home', pathMatch: 'full' },
   { path: 'home', component: TodosComponent },
   { path: 'finished', component: FinishTodosComponent}
 ];

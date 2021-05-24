@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { FinshedTasksService } from 'src/app/finshed-tasks.service';
+import { Todo } from 'src/app/Todo';
 
 @Component({
   selector: 'app-finish-todos',
@@ -7,9 +9,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class FinishTodosComponent implements OnInit {
 
-  constructor() { }
+  finishedTodos!: Todo[];
+  constructor(private _finishedTasks: FinshedTasksService) { }
 
   ngOnInit(): void {
+    this.finishedTodos = this._finishedTasks.getFinishedTasks();
   }
 
 }
