@@ -1,9 +1,20 @@
-<div class="card" style="width: 18rem;">
+<!--<div class="card" style="width: 18rem;">
     <div class="card-body">
       <h5 class="card-title">Quote</h5>
       <h6 class="card-subtitle mb-2 text-muted">Author: {{currentQuote?.author}}</h6>
       <p class="card-text">{{currentQuote?.text}}</p>
     </div>
+</div>-->
+<div class="card">
+  <div class="card-header">
+    Quote
+  </div>
+  <div class="card-body">
+    <blockquote class="blockquote mb-0">
+      <p>{{currentQuote.text}}</p>
+      <footer class="blockquote-footer"><cite title="Source Title">{{currentQuote.author}}</cite></footer>
+    </blockquote>
+  </div>
 </div>
 <!--<div class="container text-center">
     <h1 id="firstHeading" class="headingClass">Quotes List</h1>

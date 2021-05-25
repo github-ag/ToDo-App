@@ -1,4 +1,3 @@
-
 <h1 id="firstHeading" class="headingClass main-heading text-center">Todo List</h1>
 <app-add-modal (sendTodoToList)="addTodoItem($event)" class="container-fluid"></app-add-modal>
 <div class="container text-center">
@@ -12,7 +11,6 @@
               <button class="btn to-right" (click)="deleteTodo(todo)" matTooltip="Delete"><mat-icon color="warn">delete</mat-icon></button>
               <button (click)="addFinishTodo(todo)" class="btn to-right" matTooltip="Finish"><mat-icon>check_circle_outline</mat-icon></button>
               <button (click)="openDialog(todo)" class="btn to-right" matTooltip="Update"><mat-icon>update</mat-icon></button>
-              
             </button>
             
           </h2>

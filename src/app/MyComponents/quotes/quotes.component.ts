@@ -30,12 +30,12 @@ export class QuotesComponent implements OnInit {
 
   ngOnInit(): void {
     this.getQuotes();
-    let setRandomIdx=interval(3000);
+    let setRandomIdx=interval(5000);
     setRandomIdx.subscribe(res=>{
       this.idx=Math.floor(Math.random() * ((this.quotes.length-1) - 0) + 0);
     })
 
-    let setQuote=interval(3000);
+    let setQuote=interval(5000);
     setQuote.subscribe(res=>{
       this.currentQuote=this.quotes[this.idx];
     })
