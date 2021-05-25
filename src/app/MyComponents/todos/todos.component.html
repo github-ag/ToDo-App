@@ -1,29 +1,37 @@
 
+<h1 id="firstHeading" class="headingClass main-heading text-center">Todo List</h1>
+<app-add-modal (sendTodoToList)="addTodoItem($event)" class="container-fluid"></app-add-modal>
 <div class="container text-center">
-    <h1 id="firstHeading" class="headingClass">Todo List</h1>
 
-    <div class="accordion" id="accordionExample" *ngFor = "let todo of todos">
-        <div class="accordion-item">
-          <h2 class="accordion-header" id="heading">
-            <button class="accordion-button" type="button" data-bs-toggle="collapse" [attr.data-bs-target]="todo.title" aria-expanded="true" aria-controls="collapseOne">
+    <div class="accordion" id="accordionExample">
+      
+        <div class="accordion-item"  *ngFor = "let todo of todos"> 
+          <h2 class="accordion-header header-background" [id]="'heading'+todo.sno">
+            <button class="accordion-button collapsed set-pos header-background" type="button" data-bs-toggle="collapse" [attr.data-bs-target]="'#collapse'+todo.sno" aria-expanded="false" >
               {{todo.title}}
-              <button class="btn btn-danger" (click)="deleteTodo(todo)">Delete</button>
-              <button (click)="addFinishTodo(todo)">Finish</button>
-            
+              <button class="btn to-right" (click)="deleteTodo(todo)" matTooltip="Delete"><mat-icon color="warn">delete</mat-icon></button>
+              <button (click)="addFinishTodo(todo)" class="btn to-right" matTooltip="Finish"><mat-icon>check_circle_outline</mat-icon></button>
+              <button (click)="openDialog(todo)" class="btn to-right" matTooltip="Update"><mat-icon>update</mat-icon></button>
+              
             </button>
+            
           </h2>
+          
           <!--This is accordion collapse part.-->
-          <div id={{todo.title}} class="accordion-collapse collapse show" aria-labelledby="heading" data-bs-parent="#accordionExample">
-            <div class="accordion-body">
+          <div [id]="'collapse'+todo.sno" class="accordion-collapse collapse " [attr.aria-labelledby]="'heading'+todo.sno" data-bs-parent="#accordionExample">
+            <div class="accordion-body description-content">
               <strong>{{todo.desc}}</strong> 
             </div>
-            <app-update-todo [todoSno]="todo.sno"  (updateTodoToList)="updateTodoItem($event)"></app-update-todo>
           </div>
+          <!----------update component--------->
+          <!--<app-update-todo [todoSno]="todo"  (updateTodoToList)="updateTodoItem($event)" class="to-right"></app-update-todo>-->
         </div>
     </div>
+
 </div>
+
 <!-- get the new Todo from the add todo model through event and updating our todo list. -->
-<app-add-modal (sendTodoToList)="addTodoItem($event)"></app-add-modal>
+
 <br><br>
 
 

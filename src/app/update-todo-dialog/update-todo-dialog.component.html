@@ -1,0 +1,23 @@
+<h2 mat-dialog-title>New Update Component</h2>
+<mat-dialog-content>
+    <form>
+        <div class="mb-3">
+          <label for="recipient-name" class="col-form-label">Title</label>
+          <input type="text" class="form-control" id="recipient-name" name="title" [(ngModel)]="updateTodo.title" >
+    
+        </div>
+        <div class="mb-3">
+          <label for="message-text" class="col-form-label">Description</label>
+          <textarea class="form-control" id="message-text" name="description" [(ngModel)]="updateTodo.desc"></textarea>
+        </div>
+      </form>
+</mat-dialog-content>
+<mat-dialog-actions align="end">
+  <button mat-button mat-dialog-close>Cancel</button>
+  <button mat-button (click)="updateTodoSno()" cdkFocusInitial>Update</button>
+</mat-dialog-actions>
+
+
+<!-- Copyright 2021 Google LLC. All Rights Reserved.
+    Use of this source code is governed by an MIT-style license that
+    can be found in the LICENSE file at http://angular.io/license -->

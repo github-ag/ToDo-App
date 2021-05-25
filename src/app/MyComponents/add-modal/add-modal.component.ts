@@ -1,4 +1,6 @@
+
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+
 import { Todo } from 'src/app/Todo';
 
 @Component({
@@ -34,12 +36,21 @@ export class AddModalComponent implements OnInit {
       desc:"This is description of the new form",
       active:true
     }
+    
   }
   sendTodo(){
 
+    if(this.newTodo.title===""){
+      alert("Empty Title");
+    }
+    else if(this.newTodo.desc===""){
+      alert("Empty Description");
+    }
     // newTodo Contents are changed by two way binding.
-    this.sendTodoToList.emit(this.newTodo);
-    console.log("sending is fine");
+    else{
+      this.sendTodoToList.emit(this.newTodo);
+      console.log("sending is fine");
+    }
   }
 
   
