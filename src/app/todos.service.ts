@@ -90,7 +90,7 @@ export class TodosService {
     //console.log(this.todos);
   }
   updateTodoItem(updateTodo: Todo){
-    console.log(updateTodo);
+    //console.log(updateTodo);
     //console.log("todoDirectly"+todoSno);
     //console.log(currTodo);
     const reqIndex:number=updateTodo.sno-1;

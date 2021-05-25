@@ -1,4 +1,4 @@
-<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" (click)="createNewReference()" data-bs-whatever="@mdo">Add Todo</button>
+<button type="button" class="btn btn-primary add-button" data-bs-toggle="modal" data-bs-target="#exampleModal" (click)="createNewReference()" data-bs-whatever="@mdo">Add Task</button>
 <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog">
       <div class="modal-content">
@@ -12,18 +12,19 @@
               <!--Two way binding is done here-->
             <div class="mb-3">
               <label for="recipient-name" class="col-form-label">Title</label>
-              <input type="text" class="form-control" id="recipient-name" name ="title" [(ngModel)]="newTodo.title">
+              <input type="text" class="form-control" id="recipient-name"  name ="title" [(ngModel)]="newTodo.title" required />
             </div>
             <div class="mb-3">
               <label for="message-text" class="col-form-label">Description</label>
               <textarea class="form-control" id="message-text" name="description" [(ngModel)]="newTodo.desc"></textarea>
             </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+              <button type="submit" class="btn btn-primary" (click) = "sendTodo()" data-bs-dismiss="modal">ADD Todo</button>
+            </div>
           </form>
         </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-          <button type="button" class="btn btn-primary" (click) = "sendTodo()" data-bs-dismiss="modal">ADD Todo</button>
-        </div>
+        
       </div>
     </div>
   </div>

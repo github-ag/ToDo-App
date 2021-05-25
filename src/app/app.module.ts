@@ -9,9 +9,17 @@ import { HttpClientModule } from '@angular/common/http';
 import { UpdateTodoComponent } from './MyComponents/update-todo/update-todo.component';
 import { QuotesComponent } from './MyComponents/quotes/quotes.component';
 
-import { FinishTodosComponent } from './MyComponents/finish-todos/finish-todos.component'
-import { FinshedTasksService } from './finshed-tasks.service'
+import { FinishTodosComponent } from './MyComponents/finish-todos/finish-todos.component';
+import { FinshedTasksService } from './finshed-tasks.service';
 import { TodosService } from './todos.service';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatIconModule} from '@angular/material/icon';
+import { UpdateTodoDialogComponent } from './update-todo-dialog/update-todo-dialog.component';
+import {MatDialogModule} from '@angular/material/dialog';
+import {MatTooltipModule} from '@angular/material/tooltip'
+
+
+
 
 
 @NgModule({
@@ -21,13 +29,20 @@ import { TodosService } from './todos.service';
     AddModalComponent,
     UpdateTodoComponent,
     QuotesComponent,
-    FinishTodosComponent
+    FinishTodosComponent,
+    UpdateTodoDialogComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    BrowserAnimationsModule,
+    MatIconModule,
+    MatDialogModule,
+    MatTooltipModule
+
+  
   ],
   providers: [FinshedTasksService, TodosService],
   bootstrap: [AppComponent]
