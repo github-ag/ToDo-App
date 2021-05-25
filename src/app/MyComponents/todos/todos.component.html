@@ -1,4 +1,4 @@
-
+<app-add-modal (sendTodoToList)="addTodoItem($event)"></app-add-modal>
 <div class="container text-center">
     <h1 id="firstHeading" class="headingClass">Todo List</h1>
 
@@ -9,7 +9,6 @@
               {{todo.title}}
               <button class="btn btn-danger" (click)="deleteTodo(todo)">Delete</button>
               <button (click)="addFinishTodo(todo)">Finish</button>
-            
             </button>
           </h2>
           <!--This is accordion collapse part.-->
@@ -23,7 +22,6 @@
     </div>
 </div>
 <!-- get the new Todo from the add todo model through event and updating our todo list. -->
-<app-add-modal (sendTodoToList)="addTodoItem($event)"></app-add-modal>
 <br><br>
 
 
