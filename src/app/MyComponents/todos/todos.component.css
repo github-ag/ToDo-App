@@ -1,7 +1,58 @@
+.add-button-style{
+    margin-bottom: 20px;
+
+}
+.header-background{
+    background-color: #daf0ec;
+}
+.accordion-button:not(.collapsed) {
+    color: #0d7377; 
+    /*background-color: #e7f1ff;*/
+    box-shadow: inset 0 -1px 0 rgb(0 0 0 / 13%);
+}
+
 .to-right{
     position: relative;
     float:right;
 }
 .set-pos{
     display:block;
+}
+.main-heading{
+    font-family: 'Dancing Script', cursive;
+    font-size:5em;
+    padding-top: 40px;
+    padding-bottom: 20px;
+    color: #11999e;
+}
+
+.description-content{
+    font-family: 'Nunito', sans-serif;
+}
+
+
+
+
+
+@media only screen and (min-width: 200px) {
+    .header-background{
+        font-size: 15px;
+        
+    }
+
+}
+@media only screen and (min-width: 600px) {
+    .header-background{
+        font-size: 25px;
+    }
+
+}
+@media only screen and (min-width: 768px) {
+    .header-background{
+        font-size:25px;
+    }
+    .description-content{
+        font-size: 20px;
+    }
+
 }

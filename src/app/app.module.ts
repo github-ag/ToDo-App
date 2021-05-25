@@ -16,6 +16,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatIconModule} from '@angular/material/icon';
 import { UpdateTodoDialogComponent } from './update-todo-dialog/update-todo-dialog.component';
 import {MatDialogModule} from '@angular/material/dialog';
+import {MatTooltipModule} from '@angular/material/tooltip'
 
 
 
@@ -38,7 +39,8 @@ import {MatDialogModule} from '@angular/material/dialog';
     HttpClientModule,
     BrowserAnimationsModule,
     MatIconModule,
-    MatDialogModule
+    MatDialogModule,
+    MatTooltipModule
 
   
   ],

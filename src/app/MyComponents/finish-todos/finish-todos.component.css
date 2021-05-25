@@ -1,0 +1,27 @@
+.to-right{
+    position: relative;
+    float:right;
+}
+.set-pos{
+    display:block;
+}
+.main-heading{
+    font-family: 'Dancing Script', cursive;
+    font-size:5em;
+    padding-top: 40px;
+    padding-bottom: 40px;
+    color: #11999e;
+}
+.add-button-style{
+    margin-bottom: 20px;
+
+}
+.header-background{
+    background-color: #daf0ec;
+}
+.finished-items{
+    font-size: 2em;
+    color: #40514e;
+    padding-bottom:20px;
+    
+}
