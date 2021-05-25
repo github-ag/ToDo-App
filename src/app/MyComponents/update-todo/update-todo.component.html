@@ -1,4 +1,4 @@
-<button type="button" class="btn btn-primary" data-bs-toggle="modal" [attr.data-bs-target]="'#updateModal'+todoSno.sno" data-bs-whatever="@mdo" (click)="changeUpdateForm()">Update Todo</button>
+<button type="button" class="btn" data-bs-toggle="modal" [attr.data-bs-target]="'#updateModal'+todoSno.sno" data-bs-whatever="@mdo" (click)="changeUpdateForm()" #updateButton><mat-icon>update</mat-icon></button>
 
 <div class="modal fade" [id]="'updateModal'+todoSno.sno" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog">

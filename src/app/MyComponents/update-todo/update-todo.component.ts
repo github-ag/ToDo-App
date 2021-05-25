@@ -1,5 +1,8 @@
+import { ViewChild } from '@angular/core';
+import { ElementRef } from '@angular/core';
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { Todo } from 'src/app/Todo';
+
 
 @Component({
   selector: 'app-update-todo',
