@@ -16,7 +16,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatIconModule} from '@angular/material/icon';
 import { UpdateTodoDialogComponent } from './update-todo-dialog/update-todo-dialog.component';
 import {MatDialogModule} from '@angular/material/dialog';
-import {MatTooltipModule} from '@angular/material/tooltip'
+import {MatTooltipModule} from '@angular/material/tooltip';
+import { AddTodoDialogComponent } from './add-todo-dialog/add-todo-dialog.component'
 
 
 
@@ -30,7 +31,8 @@ import {MatTooltipModule} from '@angular/material/tooltip'
     UpdateTodoComponent,
     QuotesComponent,
     FinishTodosComponent,
-    UpdateTodoDialogComponent
+    UpdateTodoDialogComponent,
+    AddTodoDialogComponent
   ],
   imports: [
     BrowserModule,

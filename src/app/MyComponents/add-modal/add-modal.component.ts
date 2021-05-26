@@ -14,13 +14,15 @@ export class AddModalComponent implements OnInit {
 
   // Todo that is sent to parent.
   newTodo : Todo;
-
+  isTitleValid = true;
+  isDescValid = true;
+  tempV = "modal";
   constructor() { 
     console.log("add-todo-constructor");
     this.newTodo = {
       sno:3,
-      title:"This is a newly added todo",
-      desc:"This is description of the new form",
+      title:"Enter Title",
+      desc:"Enter Description",
       active:true
     }
   }
@@ -32,24 +34,31 @@ export class AddModalComponent implements OnInit {
     console.log("new-reference");
     this.newTodo = {
       sno:3,
-      title:"This is a newly added todo",
-      desc:"This is description of the new form",
+      title:"",
+      desc:"",
       active:true
     }
     
   }
-  sendTodo(){
+  
 
-    if(this.newTodo.title===""){
-      alert("Empty Title");
-    }
-    else if(this.newTodo.desc===""){
-      alert("Empty Description");
-    }
+  sendTodo(){
+    this.isTitleValid = this.newTodo.title.length > 0;
+    this.isDescValid = this.newTodo.desc.length>0;
+    
     // newTodo Contents are changed by two way binding.
-    else{
+    if(this.isTitleValid && this.isDescValid){
       this.sendTodoToList.emit(this.newTodo);
       console.log("sending is fine");
+    }
+    else{
+      //this.tempV="notModal";
+      if(!this.isTitleValid){
+        alert("Empty Title");
+      }
+      else if(!this.isDescValid){
+        alert("Empty Description");
+      }
     }
   }
 

@@ -5,14 +5,15 @@
       <p class="card-text">{{currentQuote?.text}}</p>
     </div>
 </div>-->
-<div class="card">
+<div class="card container">
   <div class="card-header">
-    Quote
+    <h2><b>Quote</b></h2>
   </div>
   <div class="card-body">
     <blockquote class="blockquote mb-0">
-      <p>{{currentQuote.text}}</p>
-      <footer class="blockquote-footer"><cite title="Source Title">{{currentQuote.author}}</cite></footer>
+      <p>{{currentQuote?.text}}</p>
+      <br>
+      <footer class="blockquote-footer"><cite title="Source Title">{{currentQuote?.author}}</cite></footer>
     </blockquote>
   </div>
 </div>

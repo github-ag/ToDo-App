@@ -9,9 +9,10 @@ export class TodosService {
   public todos: Todo[];
   public num_todos: number;
   constructor() { 
-    this.num_todos = 2;
+    this.num_todos = 0;
     //this.receivedMsg = "receivedTodoItem";
     this.todos = [
+      /*
       {
         sno: 1,
         title: "Learn-Angular",
@@ -23,7 +24,7 @@ export class TodosService {
         title: 'Mini-Project',
         desc: 'Make mini-project using angular',
         active: true
-      }
+      }*/
     ]
     if(!localStorage.getItem("todos")){
       localStorage.setItem("todos",JSON.stringify(this.todos));

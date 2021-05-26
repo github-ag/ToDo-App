@@ -10,6 +10,9 @@ import { Todo } from '../Todo';
 export class UpdateTodoDialogComponent implements OnInit {
 
   updateTodo: Todo;
+  isTitleValid = true;
+  isDescValid = true;
+
   constructor(private dialogRef: MatDialogRef<UpdateTodoDialogComponent>,@Inject(MAT_DIALOG_DATA) private data: Todo) {
     this.updateTodo = data;
     //console.log("repeated call");
@@ -17,9 +20,17 @@ export class UpdateTodoDialogComponent implements OnInit {
   
    }
    updateTodoSno(){
+    this.isTitleValid = this.updateTodo.title.length > 0;
+    this.isDescValid = this.updateTodo.desc.length>0;
+    
+    // newTodo Contents are changed by two way binding.
+    if(this.isTitleValid && this.isDescValid){
+      this.dialogRef.close(this.updateTodo);
+
+    }
     //console.log(this.todoSno);
     //this.updateTodoToList.emit(this.updateTodo);
-    this.dialogRef.close(this.updateTodo);
+    
    }
 
   ngOnInit(): void {
