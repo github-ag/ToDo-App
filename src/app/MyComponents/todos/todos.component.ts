@@ -17,6 +17,8 @@ export class TodosComponent implements OnInit {
   num_todos!: number;
   finishedTodos!: Todo[];
   todos!: Todo[];
+
+  noTask=true;
   //receivedMsg: string;
 
   
@@ -28,11 +30,17 @@ export class TodosComponent implements OnInit {
     this.finishedTodos = this._finishedTasks.getFinishedTasks();
     this.todos = this._todosService.getTodos();
     this.num_todos = this._todosService.getNumTodos();
+    if(this.num_todos>0)
+    this.noTask = false;
+    
   }
   openDialog(updateTodo : Todo) {
     const dialogRef = this.dialog.open(UpdateTodoDialogComponent,{
       data: JSON.parse(JSON.stringify(updateTodo)),
-      disableClose:true
+      disableClose:true,
+      width: "500px",
+      minHeight: "300px"
+    
     });
 
     dialogRef.afterClosed().subscribe((result: Todo) => {
@@ -63,6 +71,7 @@ export class TodosComponent implements OnInit {
     this._todosService.addTodoItem(newTodo);
     this.todos = this._todosService.getTodos();
     this.num_todos = this._todosService.getNumTodos();
+    this.noTask = false;
   
   }
   deleteTodo(deleteTodo: Todo){
@@ -70,6 +79,9 @@ export class TodosComponent implements OnInit {
     this._todosService.deleteTodo(deleteTodo);
     this.todos = this._todosService.getTodos();
     this.num_todos = this._todosService.getNumTodos();
+    if(this.num_todos==0){
+      this.noTask  = true;
+    }
     
   }
   
@@ -86,6 +98,8 @@ export class TodosComponent implements OnInit {
 
     this.todos = this._todosService.getTodos();
     this.num_todos = this._todosService.getNumTodos();
+    if(this.num_todos==0)
+    this.noTask = true;
     
   }
 

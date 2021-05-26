@@ -25,3 +25,18 @@
     padding-bottom:20px;
     
 }
+.finish-item-style{
+    border-left-width: 2px;
+    
+    width: 30%;
+    margin: auto;
+    border-top-width: 2px;
+    padding-right: 2px;
+    border-right-width: 2px;
+    border-bottom-width: 2px;
+    padding-top: 16px;
+    margin-bottom: 4px;
+}
+.list-group-flush>.list-group-item:last-child {
+    border-bottom-width: 2px;
+}

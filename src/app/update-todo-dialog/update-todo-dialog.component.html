@@ -1,20 +1,30 @@
-<h2 mat-dialog-title>New Update Component</h2>
+<h2 mat-dialog-title>Update Todo</h2>
 <mat-dialog-content>
     <form>
         <div class="mb-3">
-          <label for="recipient-name" class="col-form-label">Title</label>
-          <input type="text" class="form-control" id="recipient-name" name="title" [(ngModel)]="updateTodo.title" >
+          <label for="recipient-name" class="col-form-label"><span class="text-danger mr-1">*</span>Title</label>
+          <input type="text" class="form-control" id="recipient-name" name="title" [(ngModel)]="updateTodo.title" placeholder="Enter Title">
+          <div style="height:20px;">
+             <span *ngIf="!isTitleValid" class="text-danger">
+              Title do not exist
+              </span>
+          </div>
     
         </div>
         <div class="mb-3">
-          <label for="message-text" class="col-form-label">Description</label>
-          <textarea class="form-control" id="message-text" name="description" [(ngModel)]="updateTodo.desc"></textarea>
+          <label for="message-text" class="col-form-label"><span class="text-danger mr-1">*</span>Description</label>
+          <textarea class="form-control" id="message-text" name="description" [(ngModel)]="updateTodo.desc" placeholder="Enter Description"></textarea>
+          <div style="height:20px;">
+            <span *ngIf="!isDescValid" class="text-danger">
+             Description do not exist
+             </span>
+          </div>
         </div>
       </form>
 </mat-dialog-content>
 <mat-dialog-actions align="end">
-  <button mat-button mat-dialog-close>Cancel</button>
-  <button mat-button (click)="updateTodoSno()" cdkFocusInitial>Update</button>
+  <button class="btn btn-secondary" mat-button mat-dialog-close>Cancel</button> &nbsp;&nbsp;
+  <button class="btn btn-primary" mat-button (click)="updateTodoSno()" cdkFocusInitial>Update</button>
 </mat-dialog-actions>
 
 

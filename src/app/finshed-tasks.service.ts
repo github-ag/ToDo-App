@@ -9,12 +9,13 @@ export class FinshedTasksService {
   public finishedTodos: Todo[];
   constructor() { 
     this.finishedTodos = [
+      /*
       {
         sno:2,
         title:"sample finished todo title ",
         desc:"sample finished todo desc ",
         active:true
-      }
+      }*/
     ]
     if(!localStorage.getItem("finishedTodos")){
       localStorage.setItem("finishedTodos",JSON.stringify(this.finishedTodos));
