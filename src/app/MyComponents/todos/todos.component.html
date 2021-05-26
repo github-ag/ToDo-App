@@ -1,39 +1,51 @@
 <h1 id="firstHeading" class="headingClass main-heading text-center">Todo List</h1>
-<app-add-modal (sendTodoToList)="addTodoItem($event)" class="container-fluid"></app-add-modal>
+<!--<app-add-modal (sendTodoToList)="addTodoItem($event)" class="container-fluid"></app-add-modal>-->
 
-<div class="container text-center">
-  <div *ngIf="noTask" [hidden]="!noTask">
-    <h1>No Available Tasks</h1>
-  </div>
-    <div class="accordion" id="accordionExample">
-      
-        <div class="accordion-item"  *ngFor = "let todo of todos"> 
-          <h2 class="accordion-header header-background" [id]="'heading'+todo.sno">
-            <button class="accordion-button collapsed set-pos header-background" type="button" data-bs-toggle="collapse" [attr.data-bs-target]="'#collapse'+todo.sno" aria-expanded="false" >
-              {{todo.title}}
-              <button class="btn to-right" (click)="deleteTodo(todo)" matTooltip="Delete"><mat-icon color="warn">delete</mat-icon></button>
-              <button (click)="addFinishTodo(todo)" class="btn to-right" matTooltip="Finish"><mat-icon>check_circle_outline</mat-icon></button>
-              <button (click)="openDialog(todo)" class="btn to-right" matTooltip="Update"><mat-icon>edit</mat-icon></button>
-            </button>
-            
-          </h2>
-          
-          <!--This is accordion collapse part.-->
-          <div [id]="'collapse'+todo.sno" class="accordion-collapse collapse " [attr.aria-labelledby]="'heading'+todo.sno" data-bs-parent="#accordionExample">
-            <div class="accordion-body description-content">
-              <strong>{{todo.desc}}</strong> 
-            </div>
-          </div>
-          <!----------update component--------->
-          <!--<app-update-todo [todoSno]="todo"  (updateTodoToList)="updateTodoItem($event)" class="to-right"></app-update-todo>-->
-        </div>
+
+<div class="container ">
+  <button (click)="openAddDialog()" type="button" class="btn btn-primary add-button">New Todo</button>
+  <div class="text-center">
+    <div *ngIf="noTask" [hidden]="!noTask">
+      <h1>No Available Tasks</h1>
     </div>
+    <div class="accordion" id="accordionExample">
 
+      <div class="accordion-item" *ngFor="let todo of todos">
+        <h2 class="accordion-header header-background" [id]="'heading'+todo.sno">
+          <button class="accordion-button collapsed set-pos header-background" type="button" data-bs-toggle="collapse"
+            [attr.data-bs-target]="'#collapse'+todo.sno" aria-expanded="false">
+            {{todo.title}}
+            <button class="btn to-right" (click)="deleteTodo(todo)" matTooltip="Delete">
+              <mat-icon color="warn">delete</mat-icon>
+            </button>
+            <button (click)="addFinishTodo(todo)" class="btn to-right" matTooltip="Finish">
+              <mat-icon>check_circle_outline</mat-icon>
+            </button>
+            <button (click)="openDialog(todo)" class="btn to-right" matTooltip="Update">
+              <mat-icon>edit</mat-icon>
+            </button>
+          </button>
+
+        </h2>
+
+        <!--This is accordion collapse part.-->
+        <div [id]="'collapse'+todo.sno" class="accordion-collapse collapse " [attr.aria-labelledby]="'heading'+todo.sno"
+          data-bs-parent="#accordionExample">
+          <div class="accordion-body description-content">
+            <strong>{{todo.desc}}</strong>
+          </div>
+        </div>
+        <!----------update component--------->
+        <!--<app-update-todo [todoSno]="todo"  (updateTodoToList)="updateTodoItem($event)" class="to-right"></app-update-todo>-->
+      </div>
+    </div>
+  </div>
+  <br><br>
+  <app-quotes></app-quotes>
 </div>
 
 <!-- get the new Todo from the add todo model through event and updating our todo list. -->
 
-<br><br>
 
 
- <app-quotes></app-quotes>
+

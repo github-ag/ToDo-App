@@ -1,0 +1,33 @@
+<h2 mat-dialog-title>Add Todo</h2>
+<mat-dialog-content>
+    <form>
+        <div class="mb-3">
+          <label for="recipient-name" class="col-form-label"><span class="text-danger mr-1">*</span>Title</label>
+          <input type="text" class="form-control" id="recipient-name" name="title" [(ngModel)]="addTodo.title" placeholder="Enter Title">
+          <div style="height:20px;">
+             <span *ngIf="!isTitleValid" class="text-danger">
+              Title do not exist
+              </span>
+          </div>
+    
+        </div>
+        <div class="mb-3">
+          <label for="message-text" class="col-form-label"><span class="text-danger mr-1">*</span>Description</label>
+          <textarea class="form-control" id="message-text" name="description" [(ngModel)]="addTodo.desc" placeholder="Enter Description"></textarea>
+          <div style="height:20px;">
+            <span *ngIf="!isDescValid" class="text-danger">
+             Description do not exist
+             </span>
+          </div>
+        </div>
+      </form>
+</mat-dialog-content>
+<mat-dialog-actions align="end">
+  <button class="btn btn-secondary" mat-button mat-dialog-close>Cancel</button> &nbsp;&nbsp;
+  <button class="btn btn-primary" mat-button (click)="addTodoSno()" cdkFocusInitial>Add</button>
+</mat-dialog-actions>
+
+
+<!-- Copyright 2021 Google LLC. All Rights Reserved.
+    Use of this source code is governed by an MIT-style license that
+    can be found in the LICENSE file at http://angular.io/license -->

@@ -3,6 +3,7 @@ import { CompileShallowModuleMetadata } from '@angular/compiler';
 import { Component, OnInit, Input, Output } from '@angular/core';
 import { ITS_JUST_ANGULAR } from '@angular/core/src/r3_symbols';
 import { MatDialog } from '@angular/material/dialog';
+import { AddTodoDialogComponent } from 'src/app/add-todo-dialog/add-todo-dialog.component';
 import { FinshedTasksService } from 'src/app/finshed-tasks.service';
 import { TodosService } from 'src/app/todos.service';
 import { UpdateTodoDialogComponent } from 'src/app/update-todo-dialog/update-todo-dialog.component';
@@ -53,6 +54,25 @@ export class TodosComponent implements OnInit {
       }
     });
     
+  }
+  openAddDialog(){
+    const dialogRef = this.dialog.open(AddTodoDialogComponent,{
+      //data: JSON.parse(JSON.stringify(addTodo)),
+      disableClose:true,
+      width: "500px",
+      minHeight: "300px"
+    
+    });
+
+    dialogRef.afterClosed().subscribe((result: Todo) => {
+      console.log(result);
+      if(result){
+        this.addTodoItem(result);
+      }
+      else{
+        console.log("null value");
+      }
+    });
   }
 
   addTodoItem(newTodo: Todo){

@@ -2,6 +2,11 @@
     margin-bottom: 20px;
 
 }
+.add-button{
+    background-color: #0d7377;
+    border-color: #0d7377;
+    margin-bottom:20px;
+}
 .header-background{
     background-color: #daf0ec;
 }
